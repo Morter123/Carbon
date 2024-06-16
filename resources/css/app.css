@@ -1,0 +1,137 @@
+@import url("null.css");
+
+body {
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    background: url("../img/beautiful-agricultural-half-green-half-yellow-grass-field-shot-with-a-drone.jpg") no-repeat center center fixed;
+    background-size: cover;
+
+}
+
+header {
+    position: sticky;
+    top: 0; 
+}
+
+main {
+    flex: 1 1 auto;
+    height: 500px;
+}
+
+/*  НАЧАЛО СТИЛЕЙ ДЛЯ ШАПКИ */
+
+.navbar {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: Snow;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar a {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo a {
+    font-size: 20px;
+    color: inherit;
+}
+
+.container-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    color: black;
+}
+
+.container-header a {
+    color: inherit;
+}
+
+/* КОНЕЦ СТИЛЕЙ ДЛЯ ШАПКИ */
+
+/* СТИЛИ .... */
+
+.content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 80px;
+    padding: 10px;
+    border-radius: 40px;
+    background-color: Snow;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+    padding: 0 20px;
+}
+
+.main-content__title {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.main-content__description {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.main-content p {
+    line-height: 1.5;
+}
+
+
+
+
+/* Классы калькулятора внутри контента */
+
+.title_calc {
+    margin: 0 auto;
+}
+
+.wrapper_calc {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0px;
+}
+
+.wrapper_calc input {
+    border-radius: 20px;
+}
+
+.calc_data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.select {
+    padding: 5px 30px;
+    margin: 0 auto;
+    font-size: 26px;
+}
+
+select {
+    padding: 5px;
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+}
+
+.category h1 {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.category input {
+    text-align: center;
+    padding: 5px 10px;
+    width: 300px;
+}
