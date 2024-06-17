@@ -52,10 +52,6 @@ header {
     gap: 20px;
 }
 
-.nav__item {
-
-}
-
 .nav__item-info {
     display: flex;
 }
