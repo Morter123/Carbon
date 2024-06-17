@@ -245,6 +245,33 @@ header {
 }
 
 .calculator-result {
-    
+    display: flex;
+    padding: 10px 16px;
+    justify-content: center;
+    gap: 20px;
 }
 
+.result {
+    display: none;
+    padding: 10px;
+}
+
+.add-new {
+    padding: 10px;
+}
+
+.clear {
+    padding: 10px;
+}
+
+.form-name {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+
+.graph {
+    background-color: white;
+    border-radius: 2vh;
+}
