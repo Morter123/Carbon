@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 title: {
                     display: true,
-                    text: 'Графическое представление данных',
+                    text: 'Графическое представление данных в CO₂-экв. тыс. тонн',
                     font: {
                         size: 30,
                     }

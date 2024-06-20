@@ -30,7 +30,7 @@
                         <div class="nav__item-calc"><a href="{{ route('calculator') }}">Калькулятор</a></div>
                     </div>
                     <div class="nav__item">
-                        <div class="nav__item-info"><a>FAQ</a></div>
+                        <div class="nav__item-info"><a>Меню</a></div>
                         <div class="info-menu">
                             <div><a href="{{ route('/') }}">Информация</a></div>
                             <div><a href="{{ route('formulas') }}">Формулы расчета</a></div>

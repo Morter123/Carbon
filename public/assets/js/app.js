@@ -54,5 +54,8 @@ $(document).ready(function () {
         $(this).addClass("choose");
     });
 
+    $(".clear").click(function () {
+        $(".field-input input").val('');
+    })
 
 });

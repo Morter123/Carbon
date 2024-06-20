@@ -230,10 +230,24 @@ header {
     padding: 4px;
 }
 
+.field-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+
+}
+
+.field-input {
+    padding: 2px;
+    padding-right: 10px;
+    color: rgba(12, 21, 68, .4);
+}
+
 .block input {
     flex: 1;
-    border: 2px solid #000;
+    border: none;
     padding: 10px 20px;
+    outline: 0;
 }
 
 .block select {
@@ -269,5 +283,6 @@ header {
 
 .graph {
     background-color: white;
-    border-radius: 2vh;
+    border-top-right-radius: 2vh;
+    border-top-left-radius: 2vh;
 }
