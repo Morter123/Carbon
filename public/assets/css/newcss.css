@@ -13,7 +13,6 @@ header {
 .container {
     margin: 0 auto;
     max-width: 1120px;
-    padding: 0 20px;
     width: 100%;
 }
 
@@ -52,10 +51,6 @@ header {
     gap: 20px;
 }
 
-.nav__item-info {
-    display: flex;
-}
-
 .nav__item-info a,
 .nav__item-calc a {
     font-size: 22px;
@@ -83,7 +78,7 @@ header {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 2vh;
     border: 1px solid rgb(147, 147, 147);
-    margin-top: 6px;
+    margin-top: 14px;
     transition: all 10000ms;
 }
 
@@ -256,23 +251,31 @@ header {
 
 .calculator-result {
     display: flex;
+    position: relative;
+    right: 10px;
     padding: 10px 16px;
     justify-content: center;
     gap: 20px;
 }
 
 .result {
-    display: none;
     padding: 10px;
-}
-
-.add-new {
-    padding: 10px;
+    background-color: rgb(97, 223, 97);
+    font-weight: bold;
 }
 
 .clear {
     padding: 10px;
+    background-color: rgb(251, 110, 110);
+    font-weight: bold;
 }
+
+.add-new {
+    display: none;
+    padding: 10px;
+}
+
+
 
 .form-name {
     padding: 10px;

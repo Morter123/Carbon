@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Calculation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CalculatorController extends Controller
 {
@@ -24,24 +26,49 @@ class CalculatorController extends Controller
 
         $rules = [
             'fuel'=> [
-                'a' => 3135.89,
-                'b' => 1000
+                'a' => 3.149,
             ],
             'compost' => [
-                'a' => 0.004,
-                'b' => 0.0001,
+                'a' => 4,
+                'b' => 0.001,
                 'c' => 25,
+                'd' => 0.3,
+                'e' => 298,
+            ],
+            'fertilizer' => [
+                'a' => 2,
+                'b' => 0.001,
+                'c' => 298,
             ],
         ];
 
         function compost($data, $rule) {
-            return $data['compost_value'] * $rule['a'] * $rule['b'] * $rule['c'];
+            $a = $data['compost_value'] * $rule['a'] * $rule['b'] * $rule['c'];
+            $b = $data['compost_value'] * $rule['d'] * $rule['b'] * $rule['e'];
+            $result = $a + $b;
+            return $result;
         }
 
-        $result['fuel'] = $data['fuel_value'] * $rules['fuel']['a'] / $rules['fuel']['b'];
+        function fertilizer($data, $rule) {
+            return $data['fertilizer_value'] * $rule['a'] * $rule['b'] * $rule['c'];
+        }
+
+        function def($data, $rule) {
+            return $data['def_value'] * $rule['a'];
+        }
+
+        $result['fuel'] = $data['fuel_value'] * $rules['fuel']['a'];
         $result['compost'] = compost($data, $rules['compost']);
-        $result['fertilizer'] = +$data['fertilizer_value'];
+        $result['fertilizer'] = fertilizer($data, $rules['fertilizer']);
         $result['def'] = +$data['def_value'];
+
+        if (Auth::check()) {
+            Calculation::create([
+                'user_id' => Auth::id(),
+                'calculation_date' => now(),
+                'calculation_data' => json_encode($result),
+            ]);
+        }
 
         return view('pages.calculator', compact('result'));
     }

@@ -22,7 +22,7 @@
                             <div class="block-name">Топливо</div>
                             <div class="field-input">
                                 <input name="fuel_value" type="text" placeholder="Введите кол-во литров" autocomplete="off">
-                                <div class="field-input__suffix">тыс. литров</div>
+                                <div class="field-input__suffix">тонн</div>
                             </div>
                         </div>
                     </div>
@@ -39,8 +39,9 @@
                         <div class="block">
                             <div class="block-name">Удобрение</div>
                             <select name="fertilizer_name">
-                                <option selected value="fertilizer1">Удобрение 1</option>
-                                <option value="fertilizer2">Удобрение 2</option>
+                                <option selected value="fertilizer1">Аммиачные</option>
+                                <option value="fertilizer2">Фосфорные</option>
+                                <option value="fertilizer2">Калийные</option>
                             </select>
                             <div class="field-input">
                                 <input name="fertilizer_value" type="text" placeholder="Введите кол-во тыс/тонн" autocomplete="off">
@@ -53,9 +54,10 @@
                         <div class="block">
                             <div class="block-name">Защита посевов</div>
                             <select name="def_name">
-                                <option selected value="pesticides">Пестициды</option>
-                                <option value="agrochemicals">Агрохимикаты</option>
-                                <option value="pest_control">Ядохимикаты</option>
+                                <option selected value="pesticides">Гербициды</option>
+                                <option value="agrochemicals">Инсектициды</option>
+                                <option value="pest_control">Фунгициды</option>
+                                <option value="pest_control">Ретарданты</option>
                             </select>
                             <div class="field-input">
                                 <input name="def_value" type="text" placeholder="Введите кол-во тыс/тонн" autocomplete="off">
@@ -67,8 +69,7 @@
             </div>
             <div class="calculator-result">
                 <input class="clear" type="button" id="clear_form" value="Очистить поля">
-                <input class="result" type="button" id="add_form" value="Добавить">
-                <input class="add-new" margin-top: 10px; width: 50%;" type="submit" value="Рассчитать">
+                <input class="result" margin-top: 10px; width: 50%;" type="submit" value="Рассчитать">
             </div>
 
 
@@ -76,7 +77,6 @@
 
         @if (!empty($result))
         <div id="chartData" data-values="{{ json_encode($result) }}"></div>
-        <pre>{!! print_r($result) !!}</pre>
         <div class="graph">
             <canvas id="chart"></canvas>
             <canvas id="chart2"></canvas>
