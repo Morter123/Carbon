@@ -34,13 +34,13 @@
             </div>
         </form>
 
-        <form action="{{ route('profile/compare') }}" method="GET" class="mb-3">
+        <form action="{{ route('profile/compare') }}" method="get" class="mb-3">
             <div class="row">
                 <div class="col-md-5">
                     <label for="calculation1" class="form-label">Расчет 1</label>
                     <select name="calculation1" class="form-control">
                         @foreach($calculations as $calculation)
-                        <option value="{{ $calculation->id }}">Расчет номер: {{ $calculation->id }}</option>
+                        <option value="{{ $calculation->id }}">Номер расчета: {{ $calculation->id }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -48,7 +48,7 @@
                     <label for="calculation2" class="form-label">Расчет 2</label>
                     <select name="calculation2" class="form-control">
                         @foreach($calculations as $calculation)
-                        <option value="{{ $calculation->id }}">Расчет номер: {{ $calculation->id }}</option>
+                        <option value="{{ $calculation->id }}">Номер расчета: {{ $calculation->id }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -61,16 +61,26 @@
         <div class="row">
             <div class="container">
                 <div class="col-12 mb-4">
-                    <div class="card">
-                        @if($calculations->isEmpty())
-                        @else
-                        @foreach($calculations as $calculation)
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <div>
-                                <strong>Расчет номер: {{$calculation->id}}</strong>
-                                <ol class="list-group-numbered" style="padding-left: 0px;">
 
+                    @if($calculations->isEmpty())
+                    @else
+                    @foreach($calculations as $calculation)
+                    <div class="card mb-1">
+                        <div class="card-header d-flex justify-content-center align-items-center">
+                            <div class="text-center">
+                                <div class="col"><strong>Номер расчета: {{$calculation->id}}</strong></div>
+                                <div><strong>Дата создания: {{$calculation->calculation_date}}</strong></div>
+                            </div>
+                        </div>
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <div class="row">
+                                <ol class="list-group-numbered">
+                                    <li class="list-group-item">Топливо: {{ $calculation->calculation_data['fuel'] }}</li>
+                                    <li class="list-group-item">Компостирование: {{ $calculation->calculation_data['compost'] }}</li>
+                                    <li class="list-group-item">Удобрение: {{ $calculation->calculation_data['fertilizer'] }}</li>
+                                    <li class="list-group-item">Защита посевов: {{ $calculation->calculation_data['def'] }}</li>
                                 </ol>
+                                <div class="list-group-item" style="padding-left: 12px"><strong>Сумма данных: {{ array_sum($calculation->calculation_data) }} CO₂-экв. тыс.тонн</strong></div>
                             </div>
                             <div class="d-flex">
                                 <form action="{{ route('profile/show', $calculation->id) }}" method="post" class="d-flex p-1">
@@ -84,9 +94,9 @@
                                 </form>
                             </div>
                         </div>
-                        @endforeach
-                        @endif
                     </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
         </div>

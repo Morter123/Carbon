@@ -54,15 +54,6 @@ class ProfileController extends Controller
 
     public function compare(Request $request)
     {
-        $query = Calculation::where('user_id', Auth::id());
-        if ($request->has('start_date') && $request->has('end_date')) {
-            $query->whereBetween('calculation_date', [$request->start_date, $request->end_date]);
-        }
-        $calculations = $query->get();
-
-        foreach ($calculations as $calculation) {
-            $calculation->calculation_data = json_decode($calculation->calculation_data, true);
-        }
 
         $request->validate([
             'calculation1' => 'required|exists:calculations,id',
@@ -77,6 +68,10 @@ class ProfileController extends Controller
 
         $calculations = Calculation::where('user_id', Auth::id())->get();
 
-        return view('user.profile', compact('calculations', 'calculationData1', 'calculationData2'));
+        foreach ($calculations as $calculation) {
+            $calculation->calculation_data = json_decode($calculation->calculation_data, true);
+        }
+
+        return view('user/profile', compact('calculations', 'calculationData1', 'calculationData2'));
     }
 }

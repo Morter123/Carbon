@@ -21,7 +21,7 @@ class UserController extends Controller
 
         User::create($request->all());
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Регистрация завершена!');
 
     }
 
